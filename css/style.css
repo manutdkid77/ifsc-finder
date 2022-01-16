@@ -67,8 +67,12 @@ a {
   transition: all 0.2s ease-out;
 }
 
-img {
+#bankLogo {
   max-height: 220px;
+}
+
+#bankLogo[src=""] {
+  display: none;
 }
 
 /* CARDHEADER */
