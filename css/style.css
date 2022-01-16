@@ -1,0 +1,55 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400&display=swap');
+
+/*  CSS reset start */
+input,
+button {
+  margin: 0;
+  padding: 0;
+  outline: none;
+  border: none;
+  border-radius: 0;
+  vertical-align: top;
+} /* CSS reset end */
+
+body {
+  background: rgb(178, 26, 57);
+  margin-top: 5em;
+}
+
+form {
+  text-align: center;
+}
+
+button {
+  text-align: center;
+  border: none;
+  height: 70px;
+  width: 70px;
+  background: white;
+  border-radius: 0 35px 35px 0;
+  color: rgb(170, 170, 170);
+  font-size: 1.4rem;
+}
+
+input[type="text"] {
+  border: none;
+  height: 70px;
+  width: 400px;
+  outline: none;
+  padding-left: 40px;
+  border-radius: 35px 0 0 35px;
+  color: rgb(110, 110, 110);
+  font-size: 1.6rem;
+  font-family: "Nunito", sans-serif;
+  font-weight: 400;
+  text-align: center;
+}
+
+p,
+a {
+  color: white;
+  text-align: center;
+  font-family: "Nunito", sans-serif;
+  font-weight: 400;
+  text-decoration: none;
+}
