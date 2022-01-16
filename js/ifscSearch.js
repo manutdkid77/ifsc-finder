@@ -16,19 +16,25 @@ const impsField = document.getElementById("impsField");
 const micrField = document.getElementById("micrField");
 const swiftField = document.getElementById("swiftField");
 const bankLogo = document.getElementById("bankLogo");
+const bankDetailsCard = document.getElementById("bankDetailsCard");
 
-ifscForm.addEventListener("submit", (e) => {
+bankDetailsCard.classList.add("hide");
+
+ifscForm.addEventListener("submit", async (e) => {
   e.preventDefault();
+
+  bankDetailsCard.classList.remove("show");
+  bankDetailsCard.classList.add("hide");
 
   const ifscCode = ifscTextField.value;
 
   if (ifscCode.length === 0) return;
 
-  getIfscCodeDetails(ifscCode);
+  await getIfscCodeDetails(ifscCode);
 });
 
-function getIfscCodeDetails(ifscCode) {
-  fetch(`https://ifsc.razorpay.com/${ifscCode}`)
+async function getIfscCodeDetails(ifscCode) {
+  await fetch(`https://ifsc.razorpay.com/${ifscCode}`)
     .then((response) => {
       if (response.ok) {
         return response.json();
@@ -39,7 +45,7 @@ function getIfscCodeDetails(ifscCode) {
       }
     })
     .then((data) => {
-      console.log(data);
+      bankDetailsCard.classList.remove("hide");
 
       bankNameField.innerHTML = data.BANK;
       branchNameField.innerHTML = data.BRANCH;
@@ -56,6 +62,8 @@ function getIfscCodeDetails(ifscCode) {
       impsField.innerHTML = humanizeBoolean(data.IMPS);
       micrField.innerHTML = humanizeBoolean(data.MICR);
       swiftField.innerHTML = humanizeBoolean(data.SWIFT);
+
+      bankDetailsCard.classList.add("show");
 
       getBankLogo(data.BANK);
     })
