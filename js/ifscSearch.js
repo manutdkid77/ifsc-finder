@@ -14,7 +14,24 @@ ifscForm.addEventListener("submit", (e) => {
 function getIfscCodeDetails(ifscCode) {
   fetch(`https://ifsc.razorpay.com/${ifscCode}`)
     .then((response) => response.json())
-    .then((data) => console.log(data))
+    .then((data) => {
+      console.log(data);
+
+      getBankLogo(data.BANK);
+    })
+    .catch((err) => {
+      console.error(err);
+    });
+}
+
+function getBankLogo(bankName) {
+  fetch(
+    `https://autocomplete.clearbit.com/v1/companies/suggest?query=${bankName}`
+  )
+    .then((response) => response.json())
+    .then((data) => {
+      console.log(data);
+    })
     .catch((err) => {
       console.error(err);
     });
