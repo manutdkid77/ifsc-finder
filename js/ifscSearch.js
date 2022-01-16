@@ -15,6 +15,7 @@ const neftField = document.getElementById("neftField");
 const impsField = document.getElementById("impsField");
 const micrField = document.getElementById("micrField");
 const swiftField = document.getElementById("swiftField");
+const bankLogo = document.getElementById("bankLogo");
 
 ifscForm.addEventListener("submit", (e) => {
   e.preventDefault();
@@ -28,7 +29,15 @@ ifscForm.addEventListener("submit", (e) => {
 
 function getIfscCodeDetails(ifscCode) {
   fetch(`https://ifsc.razorpay.com/${ifscCode}`)
-    .then((response) => response.json())
+    .then((response) => {
+      if (response.ok) {
+        return response.json();
+      } else {
+        throw new Error(
+          `Request failed with StatusCode: ${response.status} and StatusText: ${response.statusText} at ${getIfscCodeDetails.name}`
+        );
+      }
+    })
     .then((data) => {
       console.log(data);
 
@@ -48,7 +57,7 @@ function getIfscCodeDetails(ifscCode) {
       micrField.innerHTML = humanizeBoolean(data.MICR);
       swiftField.innerHTML = humanizeBoolean(data.SWIFT);
 
-      //getBankLogo(data.BANK);
+      getBankLogo(data.BANK);
     })
     .catch((err) => {
       console.error(err);
@@ -59,9 +68,19 @@ function getBankLogo(bankName) {
   fetch(
     `https://autocomplete.clearbit.com/v1/companies/suggest?query=${bankName}`
   )
-    .then((response) => response.json())
+    .then((response) => {
+      if (response.ok) {
+        return response.json();
+      } else {
+        throw new Error(
+          `Request failed with StatusCode: ${response.status} and StatusText: ${response.statusText} at ${getBankLogo.name}`
+        );
+      }
+    })
     .then((data) => {
-      console.log(data);
+      if (data && data.length > 0) {
+        bankLogo.src = data[0].logo;
+      }
     })
     .catch((err) => {
       console.error(err);
