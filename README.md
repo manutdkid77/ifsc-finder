@@ -2,6 +2,10 @@
 
 This is a simple web app built with HTML, CSS and javascript which gets the details of any IFSC Code entered.
 
+## Screenshots
+![Screenshot 1](https://user-images.githubusercontent.com/14297705/149788951-a318e6b5-8024-45de-a0cb-ec0fb5b4211d.png)
+
+## IFSC Information
 It returns information such as:
 
 1. Branch Name
