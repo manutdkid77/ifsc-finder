@@ -17,6 +17,7 @@ const micrField = document.getElementById("micrField");
 const swiftField = document.getElementById("swiftField");
 const bankLogo = document.getElementById("bankLogo");
 const bankDetailsCard = document.getElementById("bankDetailsCard");
+const shareButton = document.getElementById("share-button");
 
 bankDetailsCard.classList.add("hide");
 
@@ -36,6 +37,8 @@ ifscForm.addEventListener("submit", async (e) => {
 
   await OnSearch(ifscCode);
 });
+
+shareButton.addEventListener("click", shareLink);
 
 async function OnSearch(ifscCode) {
   bankDetailsCard.classList.remove("show");
@@ -131,6 +134,32 @@ function updateUrlWithIfscCode(ifscCode) {
 
     // This will replace the current entry in the browser's history, without reloading
     window.history.replaceState(nextState, nextTitle, nextUrl);
+  } catch (err) {
+    console.error(err);
+  }
+}
+
+async function shareLink() {
+  try {
+    //build share text
+    const text = `IFSC Code belongs to ${bankNameField.innerHTML}, ${branchNameField.innerHTML}, click on the link for more details`;
+
+    //build share data object, pass the current page url
+    let shareData = {
+      title: "IFSC Code Details Finder",
+      text: text,
+      url: window.location.href,
+    };
+
+    //check if navigator.canShare is supported
+    //if its supported, then send the share data object
+    if (!navigator.canShare) {
+      throw new Error(`navigator.canShare() not supported`);
+    } else if (navigator.canShare(shareData)) {
+      await navigator.share(shareData);
+    } else {
+      throw new Error(`Specified data cannot be shared`);
+    }
   } catch (err) {
     console.error(err);
   }
