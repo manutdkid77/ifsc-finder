@@ -15,44 +15,50 @@
       href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🔍</text></svg>"
     />
   </head>
-  <body>
-    <form id="ifscForm">
-      <input
-        id="ifscTextField"
-        type="text"
-        placeholder="Enter IFSC Code"
-      /><button type="submit">
-        <i class="fa fa-search" aria-hidden="true"></i>
-      </button>
-    </form>
+  <body class="site">
+    <main class="site-content">
+      <form id="ifscForm">
+        <input
+          id="ifscTextField"
+          type="text"
+          placeholder="Enter IFSC Code"
+        /><button type="submit">
+          <i class="fa fa-search" aria-hidden="true"></i>
+        </button>
+      </form>
 
-    <div class="card" id="bankDetailsCard">
-      <div class="cardheader">
-        <h3 id="bankNameField"></h3>
-      </div>
-
-      <div class="card-content">
-        <div class="imgbox">
-          <img id="bankLogo" src="" alt="bank logo" />
+      <div class="card" id="bankDetailsCard">
+        <div class="cardheader">
+          <h3 id="bankNameField"></h3>
         </div>
-        <p><strong>Branch:</strong> <span id="branchNameField"></span></p>
 
-        <p><strong>Centre:</strong> <span id="centreField"></span></p>
-        <p><strong>State:</strong> <span id="stateField"></span></p>
-        <p><strong>City:</strong> <span id="cityField"></span></p>
-        <p><strong>District:</strong> <span id="districtField"></span></p>
-        <p><strong>Address:</strong> <span id="addressField"></span></p>
-        <p><strong>Contact:</strong> <span id="contactField"></span></p>
-        <p><strong>Bank Code:</strong> <span id="bankCodeField"></span></p>
-        <p><strong>RTGS:</strong> <span id="rtgsField"></span></p>
-        <p><strong>UPI:</strong> <span id="upiField"></span></p>
-        <p><strong>NEFT:</strong> <span id="neftField"></span></p>
-        <p><strong>IMPS:</strong> <span id="impsField"></span></p>
-        <p><strong>MICR:</strong> <span id="micrField"></span></p>
-        <p><strong>SWIFT:</strong> <span id="swiftField"></span></p>
+        <div class="card-content">
+          <div class="imgbox">
+            <img id="bankLogo" src="" alt="bank logo" />
+          </div>
+          <p><strong>Branch:</strong> <span id="branchNameField"></span></p>
+
+          <p><strong>Centre:</strong> <span id="centreField"></span></p>
+          <p><strong>State:</strong> <span id="stateField"></span></p>
+          <p><strong>City:</strong> <span id="cityField"></span></p>
+          <p><strong>District:</strong> <span id="districtField"></span></p>
+          <p><strong>Address:</strong> <span id="addressField"></span></p>
+          <p><strong>Contact:</strong> <span id="contactField"></span></p>
+          <p><strong>Bank Code:</strong> <span id="bankCodeField"></span></p>
+          <p><strong>RTGS:</strong> <span id="rtgsField"></span></p>
+          <p><strong>UPI:</strong> <span id="upiField"></span></p>
+          <p><strong>NEFT:</strong> <span id="neftField"></span></p>
+          <p><strong>IMPS:</strong> <span id="impsField"></span></p>
+          <p><strong>MICR:</strong> <span id="micrField"></span></p>
+          <p><strong>SWIFT:</strong> <span id="swiftField"></span></p>
+        </div>
       </div>
-    </div>
-
+    </main>
+    <footer>
+      Site built with ❤️ by <u
+        ><a id ="github-profile" href="https://github.com/manutdkid77/">Nathaniel Nunes</a></u
+      >
+    </footer>
     <script type="text/javascript" src="./js/ifscSearch.js"></script>
   </body>
 </html>

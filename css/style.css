@@ -13,7 +13,18 @@ button {
 
 body {
   background: rgb(178, 26, 57);
-  margin-top: 5em;
+  margin: 5em 0 0 0;
+  font-family: "Nunito", sans-serif;
+}
+
+.site {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+.site-content {
+  flex: 1;
 }
 
 form {
@@ -40,7 +51,6 @@ input[type="text"] {
   border-radius: 35px 0 0 35px;
   color: rgb(110, 110, 110);
   font-size: 1.6rem;
-  font-family: "Nunito", sans-serif;
   font-weight: 400;
   text-align: center;
 }
@@ -91,4 +101,19 @@ a {
 
 .hide {
   display: none;
+}
+
+footer {
+  padding: 1em;
+  background: white;
+  color: rgb(178, 26, 57);
+  text-align: center;
+}
+
+footer > div {
+  width: 80%;
+}
+
+#github-profile:visited{
+  color: rgb(178, 26, 57);
 }
