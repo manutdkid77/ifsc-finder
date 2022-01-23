@@ -20,18 +20,31 @@ const bankDetailsCard = document.getElementById("bankDetailsCard");
 
 bankDetailsCard.classList.add("hide");
 
+const urlParams = new URLSearchParams(window.location.search);
+const codeParam = urlParams.get("code");
+
+if (codeParam) {
+  ifscTextField.value = codeParam;
+
+  OnSearch(codeParam);
+}
+
 ifscForm.addEventListener("submit", async (e) => {
   e.preventDefault();
 
+  const ifscCode = ifscTextField.value;
+
+  await OnSearch(ifscCode);
+});
+
+async function OnSearch(ifscCode) {
   bankDetailsCard.classList.remove("show");
   bankDetailsCard.classList.add("hide");
-
-  const ifscCode = ifscTextField.value;
 
   if (ifscCode.length === 0) return;
 
   await getIfscCodeDetails(ifscCode);
-});
+}
 
 async function getIfscCodeDetails(ifscCode) {
   await fetch(`https://ifsc.razorpay.com/${ifscCode}`)
