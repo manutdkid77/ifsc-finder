@@ -33,6 +33,8 @@ I also used the [Autocomplete API by clearbit](https://clearbit.com/docs#autocom
 
 The webpage was designed by using styles from [Simple Search Box](https://codepen.io/alomholt/pen/XapMNw) and [Product Card](https://codepen.io/alomholt/pen/NMKyLp) designs by [Alexander Lomholt](https://codepen.io/alomholt)
 
+I used [github fork ribbon](https://github.com/simonwhitaker/github-fork-ribbon-css) to add a nice overlay on the website to allow others to check out the project
+
 ## Documentation Referred
 
 1. [How to modify the URL without reloading the page](https://www.30secondsofcode.org/articles/s/javascript-modify-url-without-reload)
