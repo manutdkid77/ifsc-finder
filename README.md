@@ -31,9 +31,9 @@ I made use of the wonderful [Razorpay IFSC API](https://github.com/razorpay/ifsc
 
 I also used the [Autocomplete API by clearbit](https://clearbit.com/docs#autocomplete-api) to get the Bank logo by just passing the Bank name as a parameter to this API.
 
-The webpage was designed by using styles from [Simple Search Box](https://codepen.io/alomholt/pen/XapMNw) and [Product Card](https://codepen.io/alomholt/pen/NMKyLp) designs by [Alexander Lomholt](https://codepen.io/alomholt)
+The webpage was designed by using styles from [Simple Search Box](https://codepen.io/alomholt/pen/XapMNw)  , [Product Card](https://codepen.io/alomholt/pen/NMKyLp) and [Simple Share buttons](https://codepen.io/marko-zub/pen/ZeQdXd)
 
-I used [github fork ribbon](https://github.com/simonwhitaker/github-fork-ribbon-css) to add a nice overlay on the website to allow others to check out the project
+Used [github fork ribbon](https://github.com/simonwhitaker/github-fork-ribbon-css) to add a nice overlay on the website to allow others to check out the project.
 
 ## Documentation Referred
 
@@ -42,3 +42,5 @@ I used [github fork ribbon](https://github.com/simonwhitaker/github-fork-ribbon-
 2. [History API](https://developer.mozilla.org/en-US/docs/Web/API/History_API)
 
 3. [Read Query Parameters in javascript](https://stackoverflow.com/a/901144)
+
+4. [navigator.share](https://developer.mozilla.org/en-US/docs/Web/API/Navigator/share) and [navigator.canShare](https://developer.mozilla.org/en-US/docs/Web/API/Navigator/canShare) APIs to use native device share feature.
