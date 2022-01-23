@@ -12,7 +12,7 @@ button {
 } /* CSS reset end */
 
 body {
-  background: rgb(178, 26, 57);
+  background: #273c75;
   margin: 5em 0 0 0;
   font-family: "Nunito", sans-serif;
 }
@@ -106,7 +106,7 @@ a {
 footer {
   padding: 1em;
   background: white;
-  color: rgb(178, 26, 57);
+  color: #273c75;
   text-align: center;
 }
 
@@ -115,5 +115,5 @@ footer > div {
 }
 
 #github-profile:visited{
-  color: rgb(178, 26, 57);
+  color: #273c75;
 }
