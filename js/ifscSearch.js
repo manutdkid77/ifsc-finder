@@ -20,18 +20,31 @@ const bankDetailsCard = document.getElementById("bankDetailsCard");
 
 bankDetailsCard.classList.add("hide");
 
+const urlParams = new URLSearchParams(window.location.search);
+const codeParam = urlParams.get("code");
+
+if (codeParam) {
+  ifscTextField.value = codeParam;
+
+  OnSearch(codeParam);
+}
+
 ifscForm.addEventListener("submit", async (e) => {
   e.preventDefault();
 
+  const ifscCode = ifscTextField.value;
+
+  await OnSearch(ifscCode);
+});
+
+async function OnSearch(ifscCode) {
   bankDetailsCard.classList.remove("show");
   bankDetailsCard.classList.add("hide");
-
-  const ifscCode = ifscTextField.value;
 
   if (ifscCode.length === 0) return;
 
   await getIfscCodeDetails(ifscCode);
-});
+}
 
 async function getIfscCodeDetails(ifscCode) {
   await fetch(`https://ifsc.razorpay.com/${ifscCode}`)
@@ -65,10 +78,14 @@ async function getIfscCodeDetails(ifscCode) {
 
       bankDetailsCard.classList.add("show");
 
+      updateUrlWithIfscCode(ifscCode);
+
       getBankLogo(data.BANK);
     })
     .catch((err) => {
       console.error(err);
+
+      updateUrlWithIfscCode();
     });
 }
 
@@ -97,4 +114,24 @@ function getBankLogo(bankName) {
 
 function humanizeBoolean(value) {
   return value ? "Yes" : "No";
+}
+
+function updateUrlWithIfscCode(ifscCode) {
+  try {
+    let nextUrl = "";
+
+    if (ifscCode) nextUrl = `${window.location.pathname}?code=${ifscCode}`;
+    else nextUrl = `${window.location.pathname}`;
+
+    const nextTitle = "My new page title";
+    const nextState = { additionalInformation: "Updated the URL with JS" };
+
+    // This will create a new entry in the browser's history, without reloading
+    window.history.pushState(nextState, nextTitle, nextUrl);
+
+    // This will replace the current entry in the browser's history, without reloading
+    window.history.replaceState(nextState, nextTitle, nextUrl);
+  } catch (err) {
+    console.error(err);
+  }
 }
